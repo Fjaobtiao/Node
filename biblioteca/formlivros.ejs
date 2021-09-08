@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head id="start">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="">
+
+
+
+
+  <title>Livros</title>
+
+  <style type="text/css">
+    .msg-erro {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1 class="mt-5">Cadastrar Livros</h1>
+
+        <form action="/cadastrarLivros" method="POST" id="form-contato">
+
+
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Livro">
+            <span class='msg-erro msg-nome'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <input class="form-control" type="text" id="categoria" name="categoria" placeholder="Categoria">
+            <span class='msg-erro msg-cat'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="codigo">Código</label>
+            <input class="form-control" type="text" id="codigo" name="codigo" placeholder="Código">
+            <span class='msg-erro msg-cod'></span>
+          </div>
+
+          <div class="form-group">
+            <label for="autor">Autor</label>
+            <input class="form-control" type="text" id="autor" name="autor" placeholder="Autor">
+            <span class='msg-erro msg-autor'></span>
+          </div>
+
+          <button class="btn btn-primary" type="submit" id="botao">Cadastrar</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var form = document.getElementById("form-contato");
+
+    if (form.addEventListener) {
+      form.addEventListener("submit", validaCadastro);
+    } else if (form.attachEvent) {
+      form.attachEvent("onsubmit", validaCadastro);
+    }
+
+    function validaCadastro(evt) {
+      var nome = document.getElementById('nome');
+      var categoria = document.getElementById('categoria');
+      var codigo = document.getElementById('codigo');
+      var autor = document.getElementById('autor');
+
+      var contErro = 0;
+
+
+      /* Validação do campo nome */
+      caixa_nome = document.querySelector('.msg-nome');
+      if (nome.value == "") {
+        caixa_nome.innerHTML = "Favor preencher o Nome";
+        caixa_nome.style.display = 'block';
+        contErro += 1;
+      } else {
+        caixa_nome.style.display = 'none';
+      }
+
+      /* Validação do campo categoria */
+      caixa_categoria = document.querySelector('.msg-cat');
+      if (categoria.value == "") {
+        caixa_categoria.innerHTML = "Favor preencher a Categoria";
+        caixa_categoria.style.display = 'block';
+        contErro += 1;
+      } else {
+        caixa_categoria.style.display = 'none';
+      }
+
+      /* Validação do campo código */
+      caixa_codigo = document.querySelector('.msg-cod');
+      if (codigo.value == "") {
+        caixa_codigo.innerHTML = "Favor preencher a Código";
+        caixa_codigo.style.display = 'block';
+        contErro += 1;
+      } else {
+        caixa_codigo.style.display = 'none';
+      }
+
+      /* Validação do campo autor */
+      caixa_autor = document.querySelector('.msg-autor');
+      if (autor.value == "") {
+        caixa_autor.innerHTML = "Favor preencher a Autor";
+        caixa_autor.style.display = 'block';
+        contErro += 1;
+      } else {
+        caixa_autor.style.display = 'none';
+      }
+
+
+
+      if (contErro > 0) {
+        evt.preventDefault();
+      }
+    }
+  </script>
+
+
+  <!-- javascript -->
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/5bf087543c.js" crossorigin="anonymous"></script>
+  <!-- popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap min js -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

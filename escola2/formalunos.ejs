@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Cadastro de Alunos</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-5">
+          <h1>Cadastro de Alunos</h1>
+        </div>
+      </div>
+    </div>
+    <form action="/cadastrarAlunos" method="POST">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Aluno" require>
+            </div>
+            <div class="form-group">
+              <label for="matricula">Matricula</label>
+              <input type="text" class="form-control" id="matricula" name="matricula" placeholder="Matricula" require>
+            </div>
+            <div class="form-group">
+              <label for="idade">Idade</label>
+              <input type="text" class="form-control" id="idade" name="idade" placeholder="Idade" require>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="classe">Classe</label>
+              <input type="text" class="form-control" id="classe" name="classe" placeholder="Classe" require>
+            </div>
+            <div class="form-group">
+              <label for="responsavel">Responsável pelo Aluno</label>
+              <input type="text" class="form-control" id="responsavel" name="responsavel" placeholder="Responsável pelo Aluno" require>
+            </div>
+            <div class="form-group">
+              <label for="tel_contato">Telefone de Contato</label>
+              <input type="text" class="form-control" id="tel_contato" name="tel_contato" placeholder="Telefone de Contato" require>
+            </div>
+          </div>
+          <div class="col-lg-12 text-center mt-4"><button type="submit" class="btn btn-primary">Enviar</button></div>
+        </div>
+      </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
+</html>
