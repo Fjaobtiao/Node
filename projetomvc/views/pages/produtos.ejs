@@ -1,39 +1,52 @@
-<%- include('../partials/header'); %>
+<%- include("../partials/header"); %>
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="row mt-5">
-        <div class="col-6">
-          <h1>Lista de Produtos</h1>
+    <div class="row">
+
+        <div class="col">
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h1>Lista de Produtos</h1>
+                </div>
+
+                <div class="col-6 text-right">
+                    <a href="produtos/cadastrarProdutos" class="btn btn-primary my-3 text-center">Inserir Produto</a>
+                </div>
+            </div>
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Vl. Unit</th>
+                        <th>Código</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if(resultado == ""){ %>
+                        <tr>
+                            <td colspan="4" class="alert alert-warning">Nenhum produto cadastrado !</td>
+                        </tr>
+                    <%}else{ resultado.forEach(function(produto) { %>
+                        <tr>
+                            <td>
+                                <%= produto.nome %>
+                            </td>
+                            <td>
+                                <%= produto.vlUnit %>
+                            </td>
+                            <td>
+                                <%= produto.codigoBarras %>
+                            </td>
+                            <td>
+                                <a href="editarProduto/<%= produto._id %>" class="btn btn-sm btn-success">Editar</a>
+                                <a href="deletarProduto/<%= produto._id %>" class="btn btn-sm btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        <% })} %>
+                </tbody>
+            </table>
         </div>
-        <div class="col-6 text-right">
-          <a href="/produtos/cadastrarProdutos" class="btn btn-primary my-3 text-center">Inserir Produto</a>  
-        </div>
-      </div>
-      <table class="table table-sm table-hover">
-        <thead>
-          <tr>
-            <th>Nome: </th>
-            <th>Vl. Unit</th>
-            <th>Código</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% produtos_itens.forEach(function(produto) { %>
-          <tr>
-            <td><%= produto.nome %></td>
-            <td><%= produto.vlUnit %></td>
-            <td><%= produto.codigoBarras %></td>
-            <td>
-              <a href="" class="btn btn-sm btn-success">Editar</a>
-              <a href="" class="btn btn-sm btn-danger">Excluir</a>
-            </td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
     </div>
-  </div>
 </div>
-<%- include('../partials/footer'); %>
+
+<%- include("../partials/footer") %>

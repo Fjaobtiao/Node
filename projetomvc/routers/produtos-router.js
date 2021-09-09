@@ -1,16 +1,18 @@
 var express = require("express");
 const router = express.Router();
 
-const produtosController = require("../controllers/produtos-controller");
+const produtoController = require("../controllers/produtos-controller");
+
+router.get("/", produtoController.listar_produtos);
+
+router.get("/cadastrarProdutos", produtoController.cadastrar_produtos_get);
+
+router.post("/cadastrarProdutos", produtoController.cadastrar_produtos_post);
 
 
-router.get ("/", produtosController.listar_produtos);
 
 
 
 
 
-
-
-
-module.exports = router // deve vir sempre no final da página
+module.exports = router;
