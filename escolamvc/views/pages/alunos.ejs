@@ -1,0 +1,65 @@
+<%- include("../partials/header"); %>
+<div class="container">
+    <div class="row">
+
+        <div class="col">
+            <div class="row mt-5">
+                <div class="col-6">
+                    <h1>Lista de Alunos</h1>
+                </div>
+
+                <div class="col-6 text-right">
+                    <a href="alunos/cadastrarAlunos" class="btn btn-primary my-3 text-center">Inserir Aluno</a>
+                </div>
+            </div>
+            <table class="table table-sm table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Idade</th>
+                        <th>Classe</th>
+                        <th>Responsável</th>
+                        <th>Telefone de Contato</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%if(resultado == ""){ %>
+                        <tr>
+                            <td colspan="4" class="alert alert-warning">Nenhum aluno cadastrado !</td>
+                        </tr>
+                    <%}else{ resultado.forEach(function(aluno) { %>
+                        <tr>
+                            <td>
+                                <%= aluno.nome %>
+                            </td>
+                            <td>
+                                <%= aluno.matricula %>
+                            </td>
+                            <td>
+                                <%= aluno.idade %>
+                            </td>
+                            <td>
+                                <%= aluno.classe %>
+                            </td>
+                            <td>
+                                <%= aluno.responsavel %>
+                            </td>
+                            <td>
+                                <%= aluno.tel_contato %>
+                            </td>
+                            
+                            <td>
+                                <a href="/alunos/editarAlunos/<%= aluno._id %>" class="btn btn-sm btn-success">Editar</a>
+                                <a href="/alunos/deletarAlunos/<%= aluno._id %>" class="btn btn-sm btn-danger">Excluir</a>
+                            </td>
+                        </tr>
+                        <% })} %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

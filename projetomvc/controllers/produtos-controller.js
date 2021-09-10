@@ -27,7 +27,39 @@ exports.cadastrar_produtos_post = (req, res)=>{
      });
 };
 
+exports.deletar_produto = (req, res)=>{
+    var id = req.params.id;
+        produto_bd.deleteOne({_id:id}, (err)=>{
+            if (err)
+            return res.status(500).send("Erro ao Deletar");
+    res.redirect("/produtos");
+});
+}
 
+exports.editar_produtos_get = (req, res) => {
+    var id = req.params.id;
+    produto_bd.findById(id, (err, produto)=>{
+        if(err)
+            return res.status(500).send("Erro ao Editar");
+        res.render("views/pages/formEditarProduto",{resultado:produto});
+    });
+  };
 
+  exports.editar_produtos_post = (req,res) => {
 
+    var id = req.body.id;
+    produto_bd.findById(id,(err,produto) => {
+        if(err)
+            return res.status(500).send("Erro ao editar");
+        
+        produto.nome=req.body.nome;
+        produto.vlUnit=req.body.valor;
+        produto.codigoBarras=req.body.codBarras;
 
+        produto.save((err) => {
+            if(err)
+                return res.status(500).send("Erro ao cadastrar");
+            res.redirect("/produtos");
+        });
+    });
+    }
