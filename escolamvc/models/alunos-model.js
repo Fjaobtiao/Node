@@ -7,6 +7,8 @@ const Alunos = mongoose.model("alunos",{
     classe: String,
     responsavel: String,
     tel_contato: String,
+    email: String,
+    senha: String
 });
 
 module.exports = Alunos;

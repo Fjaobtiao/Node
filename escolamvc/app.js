@@ -15,11 +15,11 @@ const alunos_router = require("./routers/alunos-router")
 
 app.use("/alunos", alunos_router);
 
+
 app.get("/", (req, res) => {
     res.render("views/pages/home")
   })
 
-  
 
 app.listen(port,()=>{
     console.log("servidor rodando na porta ", port);

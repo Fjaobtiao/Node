@@ -1,0 +1,22 @@
+<%- include("../partials/header"); %>
+<div class="container">
+    <div class="row">
+
+                <form action="/login" method="POST" class="formlog">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="text" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="autor">Senha</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required>
+                    </div>
+                    <button type="submit" id="btn_enviar" class="buttonform">Logar</button>
+                    <a href="/" class="buttonform2">Voltar</a>
+
+                </form>
+        
+    </div>
+</div>
+
+<%- include("../partials/footer") %>
